@@ -13,6 +13,16 @@ CREATE DATABASE IF NOT EXISTS BLOG;
 USE BLOG;
 
 -- ===============================================================================================
+-- Descartamos las tablas si existen
+-- ===============================================================================================
+
+DROP TABLE IF EXISTS categoria_articulo;
+DROP TABLE IF EXISTS comentario;
+DROP TABLE IF EXISTS articulo;
+DROP TABLE IF EXISTS usuario;
+DROP TABLE IF EXISTS categoria;
+
+-- ===============================================================================================
 -- Creación de la Tabla de Usuarios: usuario
 -- ===============================================================================================
 
@@ -152,15 +162,15 @@ con más de 1400 estudiantes, han podido "visitar" el museo beneficiándose de s
 -- ===============================================================================================
 
 -- funciona en modo no safe
-DELETE FROM articulo WHERE NOT estado;
+--DELETE FROM articulo WHERE NOT estado;
 
 -- para saltearse el modo seguro de MySQL
 DELETE FROM articulo WHERE estado = false AND id_articulo > 0;
 
 -- para saltearse el modo seguro de MySQL
-SET SQL_SAFE_UPDATES = 0;
-DELETE FROM articulo WHERE estado = false AND id_articulo > 0;
-SET SQL_SAFE_UPDATES = 1;
+--SET SQL_SAFE_UPDATES = 0;
+--DELETE FROM articulo WHERE estado = false AND id_articulo > 0;
+--SET SQL_SAFE_UPDATES = 1;
 
 -- ===============================================================================================
 -- Agregar el comando necesario que introduzca 3 comentarios al primer artículo agregado y
