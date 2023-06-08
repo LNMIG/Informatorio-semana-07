@@ -1,10 +1,18 @@
+from os import getenv
 import mysql.connector
+from dotenv import load_dotenv
+
+load_dotenv()
+
+host = getenv('DB_HOST')
+user = getenv('DB_USER')
+password = getenv('DB_PASS')
 
 def connectMysqlDB(query=''):
-    conn = mysql.connector.connect(                     # Conectar a la base de datos 
-                                  host = 'localhost',
-                                  user = 'root',
-                                  password = 'L1975L'
+    conn = mysql.connector.connect(                   # Conectar a la base de datos 
+              host = host,
+              user = user,
+              password = password
             )
     cursor = conn.cursor()                            # Crear un cursor
     cursor.execute(query)
